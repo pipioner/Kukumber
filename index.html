@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Валентинка</title>
+    <style>
+        body { text-align: center; font-family: sans-serif; background-color: #ffe6e6; padding-top: 100px; }
+        h1 { color: #d63384; }
+        /* Стили для кнопок */
+        .btn {
+            padding: 15px 32px;
+            font-size: 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            transition: 0.2s;
+        }
+        #yesBtn { background-color: #28a745; color: white; }
+        #noBtn { background-color: #dc3545; color: white; position: absolute; }
+    </style>
+</head>
+<body>
+
+    <h1>Ты любишь меня? ❤️</h1>
+    
+    <button id="yesBtn" class="btn" onclick="alert('Я так и знал! 🥰')">ДА</button>
+    <button id="noBtn" class="btn">НЕТ</button>
+
+    <script>
+        // Находим кнопку "Нет" в документе
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+
+        // Функция, которая срабатывает при наведении мыши на кнопку "Нет"
+        noBtn.addEventListener('mouseover', function() {
+            // Генерируем случайные координаты в пределах окна
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            
+            // Перемещаем кнопку
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+
+            // Немного увеличиваем кнопку "Да", чтобы было смешнее
+            let currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
+            yesBtn.style.fontSize = (currentSize + 2) + 'px';
+        });
+    </script>
+</body>
+</html>
